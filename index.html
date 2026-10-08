@@ -1,0 +1,3792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>London Surface Repairs | Don't Replace It. Repair It.</title>
+  <meta name="description" content="Professional on-site surface repair and restoration across London & nationwide. Chips, scratches, dents and burns invisibly restored.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-warm: #F9F8F4;
+      --bg-card: #FFFFFF;
+      --bg-alabaster: rgba(249, 248, 244, 0.85);
+      --text-main: #2D3A31;
+      --text-muted: #5E6961;
+      --accent: #8C9A84;
+      --accent-light: #A3B29B;
+      --secondary: #DCCFC2;
+      --secondary-soft: #EFE8E0;
+      --border: #E6E2DA;
+      --border-dark: #D4CEBF;
+      --interactive: #C27B66;
+      --interactive-hover: #A86552;
+      --interactive-light: #F7EBE8;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+      --radius-pill: 9999px;
+      --radius-arch: 240px 240px 28px 28px;
+      --radius-arch-lg: 320px 320px 36px 36px;
+      
+      --shadow-subtle: 0 4px 20px -2px rgba(45, 58, 49, 0.05);
+      --shadow-soft: 0 12px 36px -4px rgba(45, 58, 49, 0.08);
+      --shadow-lift: 0 20px 48px -6px rgba(45, 58, 49, 0.12);
+      
+      --transition-fast: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-med: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-slow: 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-warm);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-main);
+      background-color: var(--bg-warm);
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Paper Noise Texture Overlay */
+    .paper-noise {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .serif-font {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-main);
+      letter-spacing: -0.015em;
+    }
+
+    em, .italic {
+      font-style: italic;
+      font-family: var(--font-serif);
+      font-weight: 400;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+
+    /* Layout Containers */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .container-wide {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    section {
+      position: relative;
+      padding: 7.5rem 0;
+    }
+
+    /* Eyebrow Label */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background-color: var(--accent);
+    }
+
+    /* Pill Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.95rem 2.2rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      border: 1px solid transparent;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background-color: var(--interactive);
+      color: #FFFFFF;
+      box-shadow: 0 8px 20px -4px rgba(194, 123, 102, 0.35);
+    }
+    .btn-primary:hover {
+      background-color: var(--interactive-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -4px rgba(194, 123, 102, 0.45);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-dark);
+      backdrop-filter: blur(8px);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.7);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      background-color: var(--bg-warm);
+      border-color: var(--accent);
+      color: var(--text-main);
+    }
+
+    /* Custom Cursor */
+    .custom-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background-color: var(--interactive);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out, opacity 0.3s;
+    }
+    .custom-cursor-follower {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(45, 58, 49, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.35s var(--transition-fast), 
+                  height 0.35s var(--transition-fast), 
+                  background-color 0.35s var(--transition-fast),
+                  border-color 0.35s var(--transition-fast),
+                  transform 0.18s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: transparent;
+    }
+    .custom-cursor-follower.cursor-hover-image {
+      width: 72px;
+      height: 72px;
+      background-color: rgba(45, 58, 49, 0.88);
+      border-color: transparent;
+      color: #F9F8F4;
+      backdrop-filter: blur(4px);
+    }
+    .custom-cursor-follower.cursor-hover-interactive {
+      width: 52px;
+      height: 52px;
+      background-color: rgba(194, 123, 102, 0.15);
+      border-color: var(--interactive);
+    }
+
+    /* ==========================================================================
+       1 — NAVIGATION
+       ========================================================================== */
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.75rem 2.5rem;
+      transition: padding var(--transition-med), background-color var(--transition-med), border var(--transition-med), box-shadow var(--transition-med);
+    }
+    .header-nav.scrolled {
+      padding: 1rem 2.5rem;
+      background-color: var(--bg-alabaster);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 6px 24px -4px rgba(45, 58, 49, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .brand-logo .logo-main {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+    .brand-logo .logo-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 2.2rem;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color var(--transition-fast);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--interactive);
+      transition: width var(--transition-fast);
+    }
+    .nav-link:hover {
+      color: var(--interactive);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-phone-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .nav-phone-chip svg {
+      width: 15px;
+      height: 15px;
+      fill: var(--accent);
+    }
+
+    /* Mobile Hamburger */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      position: relative;
+      z-index: 1100;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 26px;
+      height: 1.5px;
+      background-color: var(--text-main);
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Fullscreen Mobile Overlay */
+    .mobile-nav-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: var(--bg-warm);
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 7rem 2.5rem 3.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: opacity var(--transition-med), transform var(--transition-med);
+    }
+    .mobile-nav-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .mobile-nav-links a {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--text-main);
+      display: inline-block;
+      transition: transform var(--transition-fast), color var(--transition-fast);
+    }
+    .mobile-nav-links a:hover {
+      color: var(--interactive);
+      transform: translateX(10px);
+    }
+    .mobile-nav-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mobile-nav-footer a {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* ==========================================================================
+       2 — HERO SECTION
+       ========================================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 8.5rem;
+      padding-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: clamp(3.2rem, 6.5vw, 6rem);
+      line-height: 1.02;
+      font-weight: 400;
+      color: var(--text-main);
+      margin-bottom: 1.8rem;
+    }
+    .hero-title em {
+      display: block;
+      color: var(--text-main);
+      font-style: italic;
+      font-weight: 400;
+      background: linear-gradient(120deg, var(--text-main) 30%, var(--interactive) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-meta span::after {
+      content: "•";
+      margin-left: 1.75rem;
+      color: var(--border-dark);
+    }
+    .hero-meta span:last-child::after {
+      content: "";
+    }
+
+    /* Hero Visual with Organic Arch */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-arch-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 590px;
+      border-radius: var(--radius-arch-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lift);
+      border: 1px solid var(--border);
+      background-color: var(--secondary-soft);
+    }
+    .hero-arch-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-arch-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -1.75rem;
+      left: -2rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 1.4rem 1.8rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      max-width: 250px;
+      animation: floatBadge 6s ease-in-out infinite;
+    }
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero-floating-badge .badge-stat {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--interactive);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .hero-floating-badge .badge-label {
+      font-size: 0.82rem;
+      line-height: 1.35;
+      color: var(--text-muted);
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: transform var(--transition-fast), color var(--transition-fast);
+    }
+    .hero-scroll-indicator:hover {
+      color: var(--text-main);
+      transform: translate(-50%, 4px);
+    }
+    .scroll-mouse {
+      width: 24px;
+      height: 38px;
+      border: 1.5px solid var(--accent);
+      border-radius: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .scroll-wheel {
+      width: 3px;
+      height: 6px;
+      background-color: var(--interactive);
+      border-radius: 2px;
+      margin-top: 6px;
+      animation: scrollWheel 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+    @keyframes scrollWheel {
+      0% { opacity: 0; transform: translateY(0); }
+      40% { opacity: 1; }
+      80% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 0; transform: translateY(12px); }
+    }
+
+    /* ==========================================================================
+       3 — INTRODUCTION
+       ========================================================================== */
+    .intro-section {
+      background-color: var(--bg-warm);
+      border-top: 1px solid var(--border);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 5rem;
+    }
+
+    .intro-visual {
+      position: relative;
+    }
+    .intro-arch-frame {
+      width: 100%;
+      max-width: 480px;
+      height: 580px;
+      border-radius: var(--radius-arch);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+    .intro-arch-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .intro-arch-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    .intro-accent-box {
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      background-color: var(--secondary-soft);
+      border: 1px solid var(--border);
+      padding: 2.2rem 2.2rem;
+      border-radius: var(--radius-lg);
+      max-width: 260px;
+      box-shadow: var(--shadow-subtle);
+    }
+    .intro-accent-box p {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .intro-content .headline {
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      margin-bottom: 1.8rem;
+    }
+    .intro-content .intro-p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 2.8rem;
+      color: var(--text-muted);
+    }
+
+    .intro-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .pillar-item h4 {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pillar-item h4 svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .pillar-item p {
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       4 — THE TRANSFORMATION (Interactive Before/After Slider)
+       ========================================================================== */
+    .transform-section {
+      background-color: #F3EFE9;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 8.5rem 0;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 4rem;
+    }
+    .section-header-center h2 {
+      font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-card-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-lift);
+      border: 1px solid var(--border);
+    }
+
+    .ba-slider-container {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      user-select: none;
+      cursor: ew-resize;
+    }
+
+    .ba-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ba-image-before {
+      z-index: 1;
+      width: 100%;
+    }
+    .ba-image-after {
+      z-index: 2;
+      width: 50%; /* driven by script */
+      overflow: hidden;
+      border-right: 2px solid #FFFFFF;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.25);
+    }
+    .ba-image-after .ba-image-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 1040px; /* matched to container width */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ba-badge {
+      position: absolute;
+      top: 1.5rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-pill);
+      background-color: rgba(45, 58, 49, 0.75);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .ba-badge.badge-left {
+      left: 1.5rem;
+    }
+    .ba-badge.badge-right {
+      right: 1.5rem;
+      background-color: rgba(194, 123, 102, 0.85);
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 44px;
+      transform: translateX(-50%);
+      z-index: 10;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ba-handle-button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1rem;
+      transition: transform var(--transition-fast), background-color var(--transition-fast);
+    }
+    .ba-slider-container:hover .ba-handle-button {
+      transform: scale(1.1);
+      background-color: var(--interactive-light);
+      color: var(--interactive);
+    }
+
+    .ba-caption-bar {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.5rem;
+    }
+    .ba-caption-bar p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--text-main);
+    }
+    .ba-hint {
+      font-size: 0.82rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       5 — SERVICES / MATERIALS
+       ========================================================================== */
+    .materials-section {
+      background-color: var(--bg-warm);
+    }
+
+    .materials-stage {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+      background-color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .materials-list-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .material-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mat-tab-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+    .mat-tab-btn span.mat-num {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+    .mat-tab-btn:hover {
+      color: var(--text-main);
+      background-color: var(--bg-warm);
+      transform: translateX(6px);
+    }
+    .mat-tab-btn.active {
+      color: var(--text-main);
+      background-color: var(--secondary-soft);
+      font-weight: 500;
+    }
+    .mat-tab-btn.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 15%;
+      bottom: 15%;
+      width: 3px;
+      background-color: var(--interactive);
+      border-radius: 4px;
+    }
+
+    .materials-preview-col {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .material-display-arch {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      border-radius: var(--radius-arch);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background-color: var(--secondary-soft);
+    }
+    .material-display-arch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .material-info-card {
+      margin-top: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .mat-active-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+    .mat-active-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 520px;
+    }
+    .mat-active-line {
+      width: 60px;
+      height: 2px;
+      background-color: var(--interactive);
+      margin-top: 1.25rem;
+      transition: width var(--transition-med);
+    }
+
+    /* ==========================================================================
+       6 — WHAT WE REPAIR (Asymmetric Staggered Grid)
+       ========================================================================== */
+    .damages-section {
+      background-color: var(--bg-warm);
+      border-top: 1px solid var(--border);
+    }
+
+    .damages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    /* Desktop vertical staggering */
+    @media (min-width: 992px) {
+      .damage-card:nth-child(even) {
+        transform: translateY(3rem);
+      }
+    }
+
+    .damage-card {
+      background-color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      transition: all var(--transition-med);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+    }
+    .damage-card:hover {
+      box-shadow: var(--shadow-lift);
+      border-color: var(--border-dark);
+      transform: translateY(-6px);
+    }
+    @media (min-width: 992px) {
+      .damage-card:nth-child(even):hover {
+        transform: translateY(calc(3rem - 6px));
+      }
+    }
+
+    .damage-card-image {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius-arch);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      background-color: var(--secondary-soft);
+    }
+    .damage-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .damage-card:hover .damage-card-image img {
+      transform: scale(1.08);
+    }
+
+    .damage-card-title {
+      font-size: 1.45rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .damage-card-arrow {
+      font-size: 1.1rem;
+      color: var(--interactive);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all var(--transition-fast);
+    }
+    .damage-card:hover .damage-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .damage-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       7 — REPAIR PROCESS (Progressive Scroll Activation)
+       ========================================================================== */
+    .process-section {
+      background-color: #F4EFEA;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      position: relative;
+    }
+
+    .process-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 4.5rem;
+    }
+
+    /* Decorative Curved Timeline Line */
+    .timeline-track {
+      position: absolute;
+      top: 1.5rem;
+      bottom: 2rem;
+      left: 28px;
+      width: 2px;
+      background-color: var(--border-dark);
+      z-index: 1;
+    }
+    .timeline-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: var(--interactive);
+      transition: height 0.3s ease-out;
+    }
+
+    .process-step {
+      position: relative;
+      display: flex;
+      gap: 2.5rem;
+      z-index: 2;
+      opacity: 0.45;
+      transform: translateY(12px);
+      transition: all var(--transition-med);
+    }
+    .process-step.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .step-marker {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background-color: var(--bg-card);
+      border: 1.5px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      box-shadow: var(--shadow-subtle);
+      transition: all var(--transition-med);
+    }
+    .process-step.active .step-marker {
+      background-color: var(--interactive);
+      border-color: var(--interactive);
+      color: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(194, 123, 102, 0.4);
+    }
+
+    .step-content {
+      padding-top: 0.5rem;
+    }
+    .step-content h3 {
+      font-size: 1.85rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+    .step-content p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 440px;
+    }
+
+    /* Sticky visual beside process steps */
+    .process-visual-sticky {
+      position: sticky;
+      top: 7rem;
+      height: 540px;
+      border-radius: var(--radius-arch-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      background-color: var(--secondary-soft);
+    }
+    .process-visual-sticky img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.6s ease;
+    }
+
+    /* ==========================================================================
+       8 — OUR WORK (Masonry Gallery & Lightbox)
+       ========================================================================== */
+    .work-section {
+      background-color: var(--bg-warm);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3.5rem;
+      justify-content: center;
+    }
+    .filter-btn {
+      padding: 0.55rem 1.4rem;
+      border-radius: var(--radius-pill);
+      background-color: transparent;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+    }
+    .filter-btn.active {
+      background-color: var(--text-main);
+      border-color: var(--text-main);
+      color: #FFFFFF;
+    }
+
+    /* Masonry grid layout */
+    .gallery-masonry {
+      columns: 3 320px;
+      column-gap: 2rem;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 2rem;
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      transition: transform var(--transition-med), box-shadow var(--transition-med);
+    }
+    .gallery-item.arch-style {
+      border-radius: var(--radius-arch);
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .gallery-item-img-wrap {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(45, 58, 49, 0.85) 0%, rgba(45, 58, 49, 0) 50%);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.75rem;
+      transition: opacity var(--transition-fast);
+      color: #FFFFFF;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+    .gallery-item-overlay h4 {
+      font-size: 1.35rem;
+      color: #FFFFFF;
+      margin-bottom: 0.25rem;
+    }
+    .gallery-item-overlay p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .gallery-item-overlay .overlay-action {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(30, 39, 33, 0.94);
+      backdrop-filter: blur(16px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast);
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-container {
+      max-width: 920px;
+      width: 100%;
+      background-color: var(--bg-warm);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      position: relative;
+      animation: modalZoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalZoomIn {
+      from { transform: scale(0.94); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 1.2rem;
+      color: var(--text-main);
+      transition: all var(--transition-fast);
+    }
+    .lightbox-close-btn:hover {
+      background-color: var(--interactive);
+      color: #FFFFFF;
+      border-color: var(--interactive);
+    }
+    .lightbox-content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+    .lightbox-img-wrap {
+      background-color: #000;
+      min-height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-img-wrap img {
+      max-height: 520px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .lightbox-details {
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .lightbox-cat-chip {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .lightbox-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .lightbox-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       9 — WHY LONDON SURFACE REPAIRS (Editorial Grid)
+       ========================================================================== */
+    .why-section {
+      background-color: var(--bg-warm);
+      border-top: 1px solid var(--border);
+    }
+
+    .why-editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .why-card {
+      background-color: #FFFFFF;
+      padding: 3rem 2.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      transition: all var(--transition-med);
+      position: relative;
+    }
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-soft);
+      border-color: var(--accent);
+    }
+    .why-card-num {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .why-card h3 {
+      font-size: 1.65rem;
+      margin-bottom: 0.85rem;
+      color: var(--text-main);
+    }
+    .why-card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       10 — SECTORS (Horizontal Scroll Experience)
+       ========================================================================== */
+    .sectors-section {
+      background-color: #F1ECE5;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 8rem 0;
+      overflow: hidden;
+    }
+
+    .sectors-scroll-container {
+      display: flex;
+      gap: 2.2rem;
+      overflow-x: auto;
+      padding: 2.5rem 2.5rem 3rem 2.5rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sectors-scroll-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .sectors-scroll-container::-webkit-scrollbar-thumb {
+      background-color: var(--accent);
+      border-radius: 4px;
+    }
+
+    .sector-card {
+      flex: 0 0 380px;
+      scroll-snap-align: start;
+      background-color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      transition: transform var(--transition-med), box-shadow var(--transition-med);
+    }
+    .sector-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .sector-image {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+    .sector-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .sector-card:hover .sector-image img {
+      transform: scale(1.06);
+    }
+
+    .sector-body {
+      padding: 2rem;
+    }
+    .sector-body h3 {
+      font-size: 1.65rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+    .sector-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       11 — ABOUT (Craft & Experience with Overlapping Photographs)
+       ========================================================================== */
+    .about-section {
+      background-color: var(--bg-warm);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 5.5rem;
+    }
+
+    .about-composition {
+      position: relative;
+      width: 100%;
+      height: 560px;
+    }
+    .about-img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 78%;
+      height: 480px;
+      border-radius: var(--radius-arch);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lift);
+    }
+    .about-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-img-overlap {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 58%;
+      height: 340px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 6px solid var(--bg-warm);
+      box-shadow: var(--shadow-soft);
+      z-index: 2;
+    }
+    .about-img-overlap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      margin-bottom: 1.75rem;
+    }
+    .about-content p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+      color: var(--text-muted);
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .about-tag-pill {
+      font-size: 0.8rem;
+      padding: 0.4rem 1rem;
+      background-color: var(--secondary-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       12 — CONTACT / FREE QUOTE
+       ========================================================================== */
+    .quote-section {
+      background-color: #F4EFEA;
+      border-top: 1px solid var(--border);
+      padding: 8.5rem 0;
+    }
+
+    .quote-card {
+      background-color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lift);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .quote-sidebar {
+      background-color: var(--text-main);
+      color: #FFFFFF;
+      padding: 4.5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .quote-sidebar h2 {
+      font-size: 2.8rem;
+      color: #FFFFFF;
+      margin-bottom: 1.25rem;
+    }
+    .quote-sidebar h2 em {
+      display: block;
+      color: var(--secondary);
+    }
+    .quote-sidebar p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .quote-contacts-block {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #FFFFFF;
+    }
+    .contact-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon-circle svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--secondary);
+    }
+    .contact-text-wrap span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      display: block;
+    }
+    .contact-text-wrap a {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .quote-form-wrap {
+      padding: 4.5rem 3.5rem;
+    }
+
+    .quote-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .form-full {
+      grid-column: span 2;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      background-color: var(--bg-warm);
+      color: var(--text-main);
+      transition: all var(--transition-fast);
+      outline: none;
+    }
+    .form-control:focus {
+      border-color: var(--interactive);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(194, 123, 102, 0.15);
+    }
+
+    /* Custom File Upload Box */
+    .file-upload-box {
+      border: 2px dashed var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      background-color: var(--bg-warm);
+      transition: all var(--transition-fast);
+    }
+    .file-upload-box:hover {
+      border-color: var(--interactive);
+      background-color: #FFFFFF;
+    }
+    .file-upload-box svg {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 0.5rem;
+      fill: var(--accent);
+    }
+    .file-upload-box p {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .file-upload-box span {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .form-success-banner {
+      display: none;
+      background-color: #EBF2EC;
+      border: 1px solid #BED2C0;
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .form-success-banner h3 {
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+    .form-success-banner p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ==========================================================================
+       13 — FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: #242E27;
+      color: #FFFFFF;
+      padding: 5.5rem 0 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer-brand .brand-logo .logo-main {
+      color: #FFFFFF;
+      font-size: 1.4rem;
+    }
+    .footer-brand p {
+      color: rgba(255,255,255,0.65);
+      margin-top: 1.25rem;
+      max-width: 340px;
+      font-size: 0.95rem;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      transition: color var(--transition-fast), transform var(--transition-fast);
+      display: inline-block;
+    }
+    .footer-links a:hover {
+      color: var(--interactive-light);
+      transform: translateX(4px);
+    }
+
+    .footer-bottom {
+      padding-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ==========================================================================
+       ANIMATIONS & REVEAL SYSTEM
+       ========================================================================== */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-element.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Sequential delay classes */
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.3s; }
+    .delay-3 { transition-delay: 0.45s; }
+
+    /* Accessibility: Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .custom-cursor-dot, .custom-cursor-follower {
+        display: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS & MOBILE/TABLET OPTIMIZATIONS
+       ========================================================================== */
+    /* Tablet landscape and compact desktops (max 1180px) */
+    @media (max-width: 1180px) {
+      .container { padding: 0 2rem; }
+      .container-wide { padding: 0 2rem; }
+      .hero-grid { gap: 3rem; }
+      .hero-arch-card { max-width: 420px; height: 520px; }
+      .intro-grid { gap: 3.5rem; }
+      .intro-arch-frame { max-width: 420px; height: 500px; }
+      .why-editorial-grid { gap: 1.75rem; }
+      .about-grid { gap: 4rem; }
+    }
+
+    /* Tablet Portrait and Below (max 992px) */
+    @media (max-width: 992px) {
+      section { padding: 5rem 0; }
+      .transform-section, .quote-section, .sectors-section { padding: 5.5rem 0; }
+      
+      /* Navigation */
+      .nav-menu, .nav-cta-wrapper { display: none; }
+      .menu-toggle { display: flex; }
+      .header-nav { padding: 1.25rem 2rem; }
+      .header-nav.scrolled { padding: 0.9rem 2rem; }
+
+      /* Hero Section */
+      .hero {
+        min-height: auto;
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: left;
+      }
+      .hero-visual {
+        order: -1;
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .hero-arch-card {
+        max-width: 100%;
+        height: 440px;
+      }
+      .hero-floating-badge {
+        left: 1rem;
+        bottom: -1rem;
+        padding: 1.1rem 1.4rem;
+      }
+      .hero-scroll-indicator { display: none; }
+
+      /* Introduction Section */
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+      .intro-visual {
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .intro-arch-frame {
+        max-width: 100%;
+        height: 440px;
+      }
+      .intro-accent-box {
+        right: -1rem;
+        bottom: -1.5rem;
+        padding: 1.5rem;
+        max-width: 220px;
+      }
+      .intro-pillars {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      /* Services / Materials */
+      .materials-stage {
+        grid-template-columns: 1fr;
+        padding: 2.25rem;
+        gap: 2.5rem;
+      }
+      .mat-tab-btn {
+        font-size: 1.35rem;
+        padding: 0.75rem 1rem;
+      }
+      .material-display-arch {
+        height: 340px;
+      }
+
+      /* Damages Section: 2 columns on tablet, flat alignment */
+      .damages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .damages-grid .damage-card:nth-child(even) {
+        transform: none !important;
+      }
+      .damage-card:hover {
+        transform: translateY(-4px) !important;
+      }
+
+      /* Repair Process */
+      .process-container {
+        grid-template-columns: 1fr;
+      }
+      .process-visual-sticky {
+        display: none;
+      }
+      .process-timeline {
+        gap: 3rem;
+      }
+
+      /* Gallery */
+      .gallery-masonry {
+        columns: 2 280px;
+        column-gap: 1.5rem;
+      }
+
+      /* Why Us Editorial */
+      .why-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .why-card {
+        padding: 2.2rem 1.8rem;
+      }
+
+      /* About Section */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+      .about-composition {
+        max-width: 480px;
+        margin: 0 auto;
+        height: 460px;
+      }
+      .about-img-main {
+        height: 400px;
+      }
+      .about-img-overlap {
+        height: 280px;
+      }
+
+      /* Quote Form */
+      .quote-card {
+        grid-template-columns: 1fr;
+      }
+      .quote-sidebar {
+        padding: 3.5rem 2.5rem;
+      }
+      .quote-form-wrap {
+        padding: 3.5rem 2.5rem;
+      }
+
+      /* Footer */
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+      .footer-brand {
+        grid-column: span 2;
+      }
+    }
+
+    /* Mobile Phones (max 640px) */
+    @media (max-width: 640px) {
+      .container, .container-wide {
+        padding: 0 1.25rem;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .header-nav {
+        padding: 1rem 1.25rem;
+      }
+      .header-nav.scrolled {
+        padding: 0.8rem 1.25rem;
+      }
+      .brand-logo .logo-main {
+        font-size: 1.1rem;
+      }
+      .brand-logo .logo-sub {
+        font-size: 0.58rem;
+      }
+
+      /* Hero Mobile */
+      .hero {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+      }
+      .hero-lead {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        width: 100%;
+      }
+      .hero-actions .btn {
+        width: 100%;
+      }
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.72rem;
+      }
+      .hero-meta span::after {
+        display: none;
+      }
+      .hero-arch-card {
+        height: 350px;
+        border-radius: 180px 180px 24px 24px;
+      }
+      .hero-floating-badge {
+        left: 0.5rem;
+        right: 0.5rem;
+        bottom: -1rem;
+        max-width: none;
+        padding: 0.85rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .hero-floating-badge .badge-stat {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+      }
+
+      /* Introduction Mobile */
+      .intro-arch-frame {
+        height: 350px;
+        border-radius: 180px 180px 24px 24px;
+      }
+      .intro-accent-box {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 1.25rem;
+        max-width: 100%;
+      }
+      .intro-pillars {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      /* Transformation Slider Mobile */
+      .slider-card-wrapper {
+        padding: 0.85rem;
+        border-radius: var(--radius-md);
+      }
+      .ba-slider-container {
+        height: 280px;
+      }
+      .ba-badge {
+        top: 0.85rem;
+        font-size: 0.65rem;
+        padding: 0.35rem 0.8rem;
+      }
+      .ba-badge.badge-left { left: 0.85rem; }
+      .ba-badge.badge-right { right: 0.85rem; }
+      .ba-handle-button {
+        width: 38px;
+        height: 38px;
+        font-size: 0.85rem;
+      }
+      .ba-caption-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      /* Materials Mobile */
+      .materials-stage {
+        padding: 1.25rem;
+      }
+      .material-nav-list {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        gap: 0.5rem;
+      }
+      .material-nav-list::-webkit-scrollbar {
+        display: none;
+      }
+      .mat-tab-btn {
+        flex: 0 0 auto;
+        font-size: 1.05rem;
+        padding: 0.6rem 1.1rem;
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--border);
+        background-color: var(--bg-warm);
+      }
+      .mat-tab-btn.active::before {
+        display: none;
+      }
+      .mat-tab-btn .mat-num {
+        display: none;
+      }
+      .material-display-arch {
+        height: 240px;
+        border-radius: 120px 120px 20px 20px;
+      }
+      .mat-active-title {
+        font-size: 1.75rem;
+      }
+
+      /* Damage Grid Mobile */
+      .damages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      /* Process Mobile */
+      .process-step {
+        gap: 1.25rem;
+      }
+      .step-marker {
+        width: 46px;
+        height: 46px;
+        font-size: 1rem;
+      }
+      .step-content h3 {
+        font-size: 1.45rem;
+      }
+      .timeline-track {
+        left: 22px;
+      }
+
+      /* Gallery Mobile */
+      .filter-bar {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        flex-wrap: nowrap;
+      }
+      .filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-btn {
+        flex: 0 0 auto;
+        padding: 0.5rem 1rem;
+      }
+      .gallery-masonry {
+        columns: 1 100%;
+      }
+
+      /* Lightbox Modal Mobile */
+      .lightbox-modal {
+        padding: 1rem;
+      }
+      .lightbox-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .lightbox-img-wrap {
+        min-height: 260px;
+      }
+      .lightbox-img-wrap img {
+        max-height: 280px;
+      }
+      .lightbox-details {
+        padding: 1.75rem 1.5rem;
+      }
+      .lightbox-title {
+        font-size: 1.5rem;
+      }
+
+      /* Why Us Mobile */
+      .why-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Sectors Mobile Swipe Carousel */
+      .sectors-scroll-container {
+        padding: 1rem 0;
+        gap: 1.25rem;
+      }
+      .sector-card {
+        flex: 0 0 280px;
+      }
+      .sector-image {
+        height: 200px;
+      }
+
+      /* About Mobile */
+      .about-composition {
+        height: 380px;
+      }
+      .about-img-main {
+        width: 85%;
+        height: 320px;
+      }
+      .about-img-overlap {
+        width: 65%;
+        height: 210px;
+      }
+
+      /* Quote Mobile */
+      .quote-sidebar, .quote-form-wrap {
+        padding: 2.5rem 1.5rem;
+      }
+      .quote-sidebar h2 {
+        font-size: 2.2rem;
+      }
+      .quote-form {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .form-full {
+        grid-column: span 1;
+      }
+
+      /* Footer Mobile */
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .footer-brand {
+        grid-column: span 1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Subtle Paper Grain Texture Overlay -->
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <!-- Custom Desktop Cursor -->
+  <div class="custom-cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="custom-cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       1 — NAVIGATION
+       ========================================================================== -->
+  <header class="header-nav" id="headerNav">
+    <div class="nav-inner">
+      <a href="#hero" class="brand-logo" aria-label="London Surface Repairs Homepage">
+        <span class="logo-main">LONDON SURFACE REPAIRS</span>
+        <span class="logo-sub">Artisanal Surface Restoration</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#materials" class="nav-link">Services</a></li>
+          <li><a href="#gallery" class="nav-link">Our Work</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#quote" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-wrapper">
+        <a href="tel:01708536206" class="nav-phone-chip" aria-label="Call London Surface Repairs">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.4 11.4 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.58 1 1 0 01-.24 1.02l-2.21 2.19z"/></svg>
+          01708 536206
+        </a>
+        <a href="#quote" class="btn btn-primary interactive-hover">Get a Free Quote</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Overlay Menu -->
+  <div class="mobile-nav-overlay" id="mobileOverlay" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-link">Home</a></li>
+      <li><a href="#intro" class="mobile-link">The Alternative</a></li>
+      <li><a href="#transformation" class="mobile-link">Transformation</a></li>
+      <li><a href="#materials" class="mobile-link">Services & Materials</a></li>
+      <li><a href="#gallery" class="mobile-link">Our Work</a></li>
+      <li><a href="#process" class="mobile-link">Repair Process</a></li>
+      <li><a href="#about" class="mobile-link">About Us</a></li>
+      <li><a href="#quote" class="mobile-link">Get Free Quote</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="tel:01708536206">📞 01708 536206</a>
+      <a href="mailto:info@londonsurfacerepairs.co.uk">✉️ info@londonsurfacerepairs.co.uk</a>
+      <a href="#quote" class="btn btn-primary mobile-link" style="width: 100%; text-align: center;">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         2 — HERO SECTION
+         ========================================================================== -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-content">
+            <span class="eyebrow reveal-element">Surface Repair Specialists</span>
+            <h1 class="hero-title reveal-element delay-1">
+              DON'T REPLACE IT.
+              <em>REPAIR IT.</em>
+            </h1>
+            <p class="hero-lead reveal-element delay-2">
+              Professional on-site restoration for wood, stone, marble, UPVC, tiles, furniture and more. Making chips, dents, scratches, burns and holes disappear.
+            </p>
+            
+            <div class="hero-actions reveal-element delay-3">
+              <a href="#quote" class="btn btn-primary interactive-hover">Get a Free Quote</a>
+              <a href="#gallery" class="btn btn-secondary interactive-hover">View Our Work</a>
+            </div>
+
+            <div class="hero-meta reveal-element delay-3">
+              <span>London</span>
+              <span>Nationwide Coverage</span>
+              <span>24/7 Response</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal-element delay-2">
+            <div class="hero-arch-card image-hover-trigger">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" 
+                   alt="Flawless restored marble kitchen island by London Surface Repairs" 
+                   loading="eager">
+            </div>
+
+            <div class="hero-floating-badge">
+              <div class="badge-stat">90%</div>
+              <div class="badge-label">Cost savings compared to full surface replacement</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <a href="#intro" class="hero-scroll-indicator" aria-label="Scroll down to introduction">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll to Explore</span>
+      </a>
+    </section>
+
+    <!-- ==========================================================================
+         3 — INTRODUCTION
+         ========================================================================== -->
+    <section class="intro-section" id="intro">
+      <div class="container">
+        <div class="intro-grid">
+
+          <div class="intro-visual reveal-element">
+            <div class="intro-arch-frame image-hover-trigger">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop" 
+                   alt="Elegant natural wood interior restored surface" 
+                   loading="lazy">
+            </div>
+            <div class="intro-accent-box">
+              <p>"Preserving the integrity of original architecture, one seamless repair at a time."</p>
+            </div>
+          </div>
+
+          <div class="intro-content reveal-element delay-1">
+            <span class="eyebrow">The Smarter Alternative</span>
+            <h2 class="headline">Why replace an entire surface for one small imperfection?</h2>
+            <p class="intro-p">
+              We specialise in restoring damaged manufactured interior and exterior surfaces, helping residential and commercial customers avoid unnecessary replacement costs, disruptions, and environmental waste.
+            </p>
+
+            <div class="intro-pillars">
+              <div class="pillar-item">
+                <h4>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                  Save Cost
+                </h4>
+                <p>Avoid the steep expense of buying and installing new materials.</p>
+              </div>
+
+              <div class="pillar-item">
+                <h4>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                  Save Time
+                </h4>
+                <p>Completed directly on site, often within a matter of hours.</p>
+              </div>
+
+              <div class="pillar-item">
+                <h4>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                  Keep Original
+                </h4>
+                <p>Preserve matching grain, discontinued tiles, and authentic patina.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4 — THE TRANSFORMATION (Interactive Before/After Slider)
+         ========================================================================== -->
+    <section class="transform-section" id="transformation">
+      <div class="container">
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">Visual Proof</span>
+          <h2>From damage <br><em>to invisible.</em></h2>
+          <p>Drag the divider below to reveal the precision of our hand-colour-matched repairs.</p>
+        </div>
+
+        <div class="slider-card-wrapper reveal-element delay-1">
+          <div class="ba-slider-container" id="baSlider" role="region" aria-label="Before and after surface repair image comparison">
+            
+            <!-- Before Image (Chipped damaged marble counter) -->
+            <div class="ba-image ba-image-before" 
+                 style="background-image: url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1200&auto=format&fit=crop');">
+              <span class="ba-badge badge-left">Before Damage</span>
+            </div>
+
+            <!-- After Image (Flawlessly restored counter) -->
+            <div class="ba-image ba-image-after" id="baAfterLayer">
+              <div class="ba-image-inner" id="baAfterInner"
+                   style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop');">
+              </div>
+              <span class="ba-badge badge-right">Invisible After</span>
+            </div>
+
+            <!-- Draggable Divider Handle -->
+            <div class="ba-handle" id="baHandle">
+              <div class="ba-handle-button" aria-hidden="true">
+                &#10231;
+              </div>
+            </div>
+
+          </div>
+
+          <div class="ba-caption-bar">
+            <p>“A repair should not look like a repair.”</p>
+            <span class="ba-hint">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"/></svg>
+              Drag slider left or right
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5 — SERVICES / MATERIALS
+         ========================================================================== -->
+    <section class="materials-section" id="materials">
+      <div class="container">
+        
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">Our Restoration Spectrum</span>
+          <h2>Almost any surface.</h2>
+          <p>From fragile antique veneers to heavy architectural granite, our master craftsmen carry bespoke resin and colouring compounds for all substrates.</p>
+        </div>
+
+        <div class="materials-stage reveal-element delay-1">
+          
+          <div class="materials-list-col">
+            <ul class="material-nav-list" role="tablist">
+              <li>
+                <button class="mat-tab-btn active interactive-hover" data-mat="marble" role="tab" aria-selected="true">
+                  <span>Marble</span>
+                  <span class="mat-num">01</span>
+                </button>
+              </li>
+              <li>
+                <button class="mat-tab-btn interactive-hover" data-mat="wood" role="tab" aria-selected="false">
+                  <span>Wood</span>
+                  <span class="mat-num">02</span>
+                </button>
+              </li>
+              <li>
+                <button class="mat-tab-btn interactive-hover" data-mat="stone" role="tab" aria-selected="false">
+                  <span>Stone</span>
+                  <span class="mat-num">03</span>
+                </button>
+              </li>
+              <li>
+                <button class="mat-tab-btn interactive-hover" data-mat="upvc" role="tab" aria-selected="false">
+                  <span>UPVC</span>
+                  <span class="mat-num">04</span>
+                </button>
+              </li>
+              <li>
+                <button class="mat-tab-btn interactive-hover" data-mat="granite" role="tab" aria-selected="false">
+                  <span>Granite</span>
+                  <span class="mat-num">05</span>
+                </button>
+              </li>
+              <li>
+                <button class="mat-tab-btn interactive-hover" data-mat="ceramic" role="tab" aria-selected="false">
+                  <span>Ceramic</span>
+                  <span class="mat-num">06</span>
+                </button>
+              </li>
+              <li>
+                <button class="mat-tab-btn interactive-hover" data-mat="stainless" role="tab" aria-selected="false">
+                  <span>Stainless Steel</span>
+                  <span class="mat-num">07</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="materials-preview-col">
+            <div class="material-display-arch image-hover-trigger">
+              <img id="matDisplayImg" 
+                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" 
+                   alt="Marble repair sample" 
+                   loading="lazy">
+            </div>
+
+            <div class="material-info-card">
+              <h3 class="mat-active-title" id="matDisplayTitle">Marble</h3>
+              <p class="mat-active-desc" id="matDisplayDesc">
+                Restore chips, scratches and surface imperfections while preserving the original appearance, vein continuity, and high-gloss polish.
+              </p>
+              <div class="mat-active-line" id="matDisplayLine"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       6 — WHAT WE REPAIR (Asymmetric Staggered Grid)
+       ========================================================================== -->
+    <section class="damages-section" id="damages">
+      <div class="container">
+        
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">Damage Profile</span>
+          <h2>Small damage. <br><em>Big difference.</em></h2>
+          <p>Accidents happen during renovations, tenancy transitions, and everyday life. We rectify all damage types on-site.</p>
+        </div>
+
+        <div class="damages-grid">
+          
+          <div class="damage-card reveal-element image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" alt="Chips repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Chips</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Edge chipping in kitchen worktops, basins, vanity units, and tiled corners.</p>
+          </div>
+
+          <div class="damage-card reveal-element delay-1 image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600&auto=format&fit=crop" alt="Scratches repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Scratches</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Fine abrasions and gouges across hardwood floors, glass, stainless steel, and resin.</p>
+          </div>
+
+          <div class="damage-card reveal-element delay-2 image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1540518614846-7ede433c4ef4?q=80&w=600&auto=format&fit=crop" alt="Dents repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Dents</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Impact indentations on architectural doors, composite cabinets, and veneer panels.</p>
+          </div>
+
+          <div class="damage-card reveal-element delay-3 image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=600&auto=format&fit=crop" alt="Burns repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Burns</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Heat scorches and cigarette or iron burns on laminates, timber, and Corian surfaces.</p>
+          </div>
+
+          <div class="damage-card reveal-element image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=600&auto=format&fit=crop" alt="Holes repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Holes</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Drill mis-locations, fixings holes, cable penetration points, and hollow core punctures.</p>
+          </div>
+
+          <div class="damage-card reveal-element delay-1 image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=600&auto=format&fit=crop" alt="Cracks repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Cracks</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Structural stress fractures in ceramic baths, shower trays, basins, and natural tiles.</p>
+          </div>
+
+          <div class="damage-card reveal-element delay-2 image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600&auto=format&fit=crop" alt="Scuffs repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Scuffs</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Surface friction markings on powder-coated metals, UPVC frames, and architectural trims.</p>
+          </div>
+
+          <div class="damage-card reveal-element delay-3 image-hover-trigger">
+            <div class="damage-card-image">
+              <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=600&auto=format&fit=crop" alt="Colour damage repair" loading="lazy">
+            </div>
+            <div class="damage-card-title">
+              <span>Colour Damage</span>
+              <span class="damage-card-arrow">&rarr;</span>
+            </div>
+            <p class="damage-card-desc">Sun bleaching, chemical staining, and discolouration seamlessly blended to original tone.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       7 — REPAIR PROCESS (Progressive Scroll Activation)
+       ========================================================================== */
+    -->
+    <section class="process-section" id="process">
+      <div class="container">
+        
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">Our Methodology</span>
+          <h2>How it works.</h2>
+          <p>A streamlined four-step workflow delivering invisible on-site repairs with zero hassle.</p>
+        </div>
+
+        <div class="process-container">
+          
+          <div class="process-timeline" id="processTimeline">
+            <!-- Decorative Progress Track -->
+            <div class="timeline-track">
+              <div class="timeline-progress-bar" id="timelineBar"></div>
+            </div>
+
+            <!-- Step 01 -->
+            <div class="process-step active" data-step="1">
+              <div class="step-marker">01</div>
+              <div class="step-content">
+                <h3>Send Photos</h3>
+                <p>Send us clear photographs of the damaged area along with your postcode. We evaluate lighting, texture, and substrate complexity.</p>
+              </div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="process-step" data-step="2">
+              <div class="step-marker">02</div>
+              <div class="step-content">
+                <h3>Assessment & Quote</h3>
+                <p>We identify the exact surface compound, determine the restoration protocol, and provide a fixed transparent quote with no upfront payment.</p>
+              </div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="process-step" data-step="3">
+              <div class="step-marker">03</div>
+              <div class="step-content">
+                <h3>On-Site Repair</h3>
+                <p>Our master technician arrives with bespoke pigments and fillers, rebuilding the surface contour and mimicking natural grain and texture.</p>
+              </div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="process-step" data-step="4">
+              <div class="step-marker">04</div>
+              <div class="step-content">
+                <h3>Back to Beautiful</h3>
+                <p>The repaired area cures and seamlessly blends into the surrounding surface. Finished to the exact original gloss or satin sheen.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sticky Visual changing with scroll -->
+          <div class="process-visual-sticky image-hover-trigger">
+            <img id="processStickyImg" 
+                 src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop" 
+                 alt="Master surface technician assessing damage" 
+                 loading="lazy">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       8 — OUR WORK (Masonry Gallery & Lightbox)
+       ========================================================================== -->
+    <section class="work-section" id="gallery">
+      <div class="container-wide">
+        
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">Portfolio Gallery</span>
+          <h2>Repairs that speak for themselves.</h2>
+          <p>Explore our recent transformations across residential estates, luxury hotels, and commercial developments.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-bar reveal-element">
+          <button class="filter-btn active interactive-hover" data-filter="all">All</button>
+          <button class="filter-btn interactive-hover" data-filter="bath">Bath & Basin</button>
+          <button class="filter-btn interactive-hover" data-filter="door">Doors & Windows</button>
+          <button class="filter-btn interactive-hover" data-filter="flooring">Flooring</button>
+          <button class="filter-btn interactive-hover" data-filter="furniture">Furniture</button>
+          <button class="filter-btn interactive-hover" data-filter="stone">Stone & Marble</button>
+          <button class="filter-btn interactive-hover" data-filter="panels">Lifts & Panels</button>
+        </div>
+
+        <!-- Masonry Grid with Arched/Organic variations -->
+        <div class="gallery-masonry" id="galleryGrid">
+          
+          <div class="gallery-item arch-style image-hover-trigger" data-cat="stone" 
+               data-title="Carrara Marble Island" 
+               data-desc="Deep impact chip restored on a waterfall edge using hand-veined dental-grade composite resin."
+               data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Marble Island Restoration" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Carrara Marble Island</h4>
+              <p>Stone & Marble • Mayfair</p>
+            </div>
+          </div>
+
+          <div class="gallery-item image-hover-trigger" data-cat="bath"
+               data-title="Freestanding Acrylic Bath" 
+               data-desc="Hairline fracture and impact crack repaired, blended, and baked with factory white enamel finish."
+               data-img="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop" alt="Freestanding Bath" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Freestanding Bath</h4>
+              <p>Bath & Basin • Kensington</p>
+            </div>
+          </div>
+
+          <div class="gallery-item arch-style image-hover-trigger" data-cat="door"
+               data-title="Walnut Architectural Door" 
+               data-desc="Severe gouge across grain reconstructed with micro-fillers and individual brush-stroked grain simulation."
+               data-img="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" alt="Walnut Door" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Walnut Architectural Door</h4>
+              <p>Doors & Windows • Chelsea</p>
+            </div>
+          </div>
+
+          <div class="gallery-item image-hover-trigger" data-cat="flooring"
+               data-title="Engineered Oak Parquet" 
+               data-desc="Heavy tool drop dent seamlessly levelled, grain-tinted, and sealed with matched ultra-matte lacquer."
+               data-img="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?q=80&w=800&auto=format&fit=crop" alt="Oak Parquet Flooring" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Engineered Oak Parquet</h4>
+              <p>Flooring • Richmond</p>
+            </div>
+          </div>
+
+          <div class="gallery-item arch-style image-hover-trigger" data-cat="furniture"
+               data-title="Vintage Teak Dining Table" 
+               data-desc="Deep hot pot scorch mark lifted and refinished without stripping original 1960s patina."
+               data-img="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=800&auto=format&fit=crop" alt="Teak Dining Table" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Vintage Teak Table</h4>
+              <p>Furniture • Islington</p>
+            </div>
+          </div>
+
+          <div class="gallery-item image-hover-trigger" data-cat="panels"
+               data-title="Brushed Bronze Lift Panels" 
+               data-desc="Key scratch graffiti in commercial elevator cab rubbed and re-grained with directional bronze pads."
+               data-img="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?q=80&w=800&auto=format&fit=crop" alt="Bronze Lift Panel" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Bronze Lift Cabs</h4>
+              <p>Lifts & Panels • Canary Wharf</p>
+            </div>
+          </div>
+
+          <div class="gallery-item arch-style image-hover-trigger" data-cat="door"
+               data-title="Anthracite UPVC Windows" 
+               data-desc="Construction scaffolding scrape on RAL 7016 frames colour-matched on site in under 3 hours."
+               data-img="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" alt="UPVC Window" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Anthracite UPVC Frames</h4>
+              <p>Doors & Windows • Battersea</p>
+            </div>
+          </div>
+
+          <div class="gallery-item image-hover-trigger" data-cat="stone"
+               data-title="Granite Kitchen Countertop" 
+               data-desc="Corner chip around undermount sink rebuilt and polished flush with natural aggregate flecks."
+               data-img="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200&auto=format&fit=crop">
+            <div class="gallery-item-img-wrap">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop" alt="Granite Countertop" loading="lazy">
+            </div>
+            <div class="gallery-item-overlay">
+              <span class="overlay-action">Click to inspect</span>
+              <h4>Granite Sink Edge</h4>
+              <p>Stone & Marble • Hampstead</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Portfolio detail modal">
+      <div class="lightbox-container">
+        <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close dialog">&times;</button>
+        <div class="lightbox-content-grid">
+          <div class="lightbox-img-wrap">
+            <img id="lightboxImg" src="" alt="Detail repair photograph">
+          </div>
+          <div class="lightbox-details">
+            <span class="lightbox-cat-chip" id="lightboxCat">Surface Restoration</span>
+            <h3 class="lightbox-title" id="lightboxTitle">Project Title</h3>
+            <p class="lightbox-desc" id="lightboxDesc">Project detailed description goes here.</p>
+            <a href="#quote" class="btn btn-primary" id="lightboxCta">Request Similar Repair</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+       9 — WHY LONDON SURFACE REPAIRS (Editorial Grid)
+       ========================================================================== -->
+    <section class="why-section" id="why-us">
+      <div class="container">
+        
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">The London Difference</span>
+          <h2>Repair with <br><em>confidence.</em></h2>
+          <p>We pride ourselves on artisan precision, prompt London-wide deployment, and an ironclad reputation among contractors and homeowners alike.</p>
+        </div>
+
+        <div class="why-editorial-grid">
+          
+          <div class="why-card reveal-element">
+            <div class="why-card-num">01 / Method</div>
+            <h3>On-Site</h3>
+            <p>All repairs are executed directly in position where the damage occurs. No disassembling, plumbing removal, or transit risks.</p>
+          </div>
+
+          <div class="why-card reveal-element delay-1">
+            <div class="why-card-num">02 / Value</div>
+            <h3>Cost Effective</h3>
+            <p>Save up to 90% compared to replacement costs. Avoid skips, rip-outs, new material purchases, and structural damage.</p>
+          </div>
+
+          <div class="why-card reveal-element delay-2">
+            <div class="why-card-num">03 / Calibre</div>
+            <h3>Professional</h3>
+            <p>Our technicians are master craftsmen rigorously trained in color theory, light refraction, and substrate chemistry.</p>
+          </div>
+
+          <div class="why-card reveal-element">
+            <div class="why-card-num">04 / Reach</div>
+            <h3>Nationwide</h3>
+            <p>Based in London with mobile technician units ready for rapid nationwide deployment across the UK.</p>
+          </div>
+
+          <div class="why-card reveal-element delay-1">
+            <div class="why-card-num">05 / Agility</div>
+            <h3>Fast Response</h3>
+            <p>Rapid scheduling within 24 to 48 hours for critical handover deadlines, tenancy departures, and project snagging lists.</p>
+          </div>
+
+          <div class="why-card reveal-element delay-2">
+            <div class="why-card-num">06 / Trust</div>
+            <h3>No Upfront Payment</h3>
+            <p>Honest craftsmanship. You only pay when the work is completed and signed off to your complete satisfaction.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       10 — SECTORS (Horizontal Scrolling Section)
+       ========================================================================== -->
+    <section class="sectors-section" id="sectors">
+      <div class="container">
+        <div class="section-header-center reveal-element">
+          <span class="eyebrow">Industry Sectors</span>
+          <h2>From homes to <br><em>large-scale projects.</em></h2>
+          <p>Delivering precision surface finishes for private clients, tier-one construction firms, and prime commercial landlords.</p>
+        </div>
+      </div>
+
+      <div class="sectors-scroll-container" id="sectorsScroll">
+        
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=700&auto=format&fit=crop" alt="Residential sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Residential</h3>
+            <p>Private luxury homes, tenant checkout snagging, worktops, sanitaryware, and hardwood flooring restorations.</p>
+          </div>
+        </div>
+
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?q=80&w=700&auto=format&fit=crop" alt="Construction sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Construction</h3>
+            <p>Pre-handover snagging, accidental trade damage rectification, powder-coated cladding, and curtain walling.</p>
+          </div>
+        </div>
+
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=700&auto=format&fit=crop" alt="Commercial sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Commercial</h3>
+            <p>Reception desks, boardroom tables, revolving glass doors, and architectural columns in prime corporate offices.</p>
+          </div>
+        </div>
+
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=700&auto=format&fit=crop" alt="Offices sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Offices</h3>
+            <p>Wear-and-tear refurbishment for landlords, facilities management, and corporate workspace turnover.</p>
+          </div>
+        </div>
+
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=700&auto=format&fit=crop" alt="Retail sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Retail</h3>
+            <p>High-street boutiques, shopping mall displays, cashier counters, and shopfront entrances.</p>
+          </div>
+        </div>
+
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=700&auto=format&fit=crop" alt="Refurbishment sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Refurbishment</h3>
+            <p>Listed heritage building conservation, character timber reinstatement, and historic stonework repairs.</p>
+          </div>
+        </div>
+
+        <div class="sector-card image-hover-trigger">
+          <div class="sector-image">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=700&auto=format&fit=crop" alt="Marine and cruise sector" loading="lazy">
+          </div>
+          <div class="sector-body">
+            <h3>Marine & Cruise</h3>
+            <p>Superyacht salon panelling, high-gloss polyurethane lacquers, cabin fixtures, and stainless steel marine fittings.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       11 — ABOUT (Craft & Experience with Overlapping Photographs)
+       ========================================================================== -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-composition reveal-element">
+            <div class="about-img-main image-hover-trigger">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop" alt="Craftsman surface restoration in progress" loading="lazy">
+            </div>
+            <div class="about-img-overlap image-hover-trigger">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" alt="Finished bespoke interior surface" loading="lazy">
+            </div>
+          </div>
+
+          <div class="about-content reveal-element delay-1">
+            <span class="eyebrow">About The Atelier</span>
+            <h2>Craft, precision & <em>experience.</em></h2>
+            <p>
+              London Surface Repairs delivers premier restoration, resurfacing, snagging, and invisible repair services across London and nationwide. We cater equally to private homeowners and the UK’s most distinguished construction contractors.
+            </p>
+            <p>
+              Rather than bearing the high costs, extended lead times, and environmental toll of rip-outs and replacements, our mobile artisans reproduce authentic grains, textures, and patinas on site.
+            </p>
+
+            <div class="about-tags">
+              <span class="about-tag-pill">Interior Surfaces</span>
+              <span class="about-tag-pill">Exterior Surfaces</span>
+              <span class="about-tag-pill">New Builds</span>
+              <span class="about-tag-pill">Dilapidations</span>
+              <span class="about-tag-pill">Refurbishment</span>
+              <span class="about-tag-pill">Restoration</span>
+              <span class="about-tag-pill">Renovation</span>
+            </div>
+
+            <a href="#quote" class="btn btn-primary interactive-hover">Discuss Your Project</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       12 — CONTACT / FREE QUOTE
+       ========================================================================== -->
+    <section class="quote-section" id="quote">
+      <div class="container">
+        
+        <div class="quote-card reveal-element">
+          
+          <div class="quote-sidebar">
+            <div>
+              <span class="eyebrow" style="color: var(--secondary); margin-bottom: 0.8rem;">Instant Estimate</span>
+              <h2>Have a damaged surface? <br><em>Let's make it disappear.</em></h2>
+              <p>Send us a few photos and your postcode for a fast, fixed quote. Most quotes provided within 2 business hours.</p>
+            </div>
+
+            <div class="quote-contacts-block">
+              <div class="contact-item">
+                <div class="contact-icon-circle">
+                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.4 11.4 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.58 1 1 0 01-.24 1.02l-2.21 2.19z"/></svg>
+                </div>
+                <div class="contact-text-wrap">
+                  <span>Call Us Directly</span>
+                  <a href="tel:01708536206">01708 536206</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-circle">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="contact-text-wrap">
+                  <span>Email Our Technicians</span>
+                  <a href="mailto:info@londonsurfacerepairs.co.uk">info@londonsurfacerepairs.co.uk</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-circle">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <div class="contact-text-wrap">
+                  <span>Service Area</span>
+                  <strong style="color: #fff; font-size: 0.95rem;">London & All UK Regions</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-form-wrap">
+            <form class="quote-form" id="quoteForm" novalidate>
+              
+              <div class="form-group">
+                <label for="clientName">Your Name *</label>
+                <input type="text" id="clientName" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientEmail">Email Address *</label>
+                <input type="email" id="clientEmail" class="form-control" placeholder="eleanor@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientPhone">Phone Number *</label>
+                <input type="tel" id="clientPhone" class="form-control" placeholder="07123 456789" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientPostcode">Postcode *</label>
+                <input type="text" id="clientPostcode" class="form-control" placeholder="e.g. SW1X 7PJ" required>
+              </div>
+
+              <div class="form-group form-full">
+                <label for="surfaceType">Surface Type & Material</label>
+                <select id="surfaceType" class="form-control">
+                  <option value="">Select surface...</option>
+                  <option value="Marble / Granite / Stone">Marble / Granite / Natural Stone</option>
+                  <option value="Hardwood / Parquet / Timber">Hardwood / Parquet / Timber</option>
+                  <option value="Bath / Basin / Shower Tray">Bath / Basin / Ceramic / Acrylic</option>
+                  <option value="UPVC Window / Frame / Door">UPVC Window / Frame / Door</option>
+                  <option value="Laminate / Kitchen Worktop">Laminate / Kitchen Worktop / Veneer</option>
+                  <option value="Stainless Steel / Metal Panel">Stainless Steel / Metal Cladding</option>
+                  <option value="Commercial Lift / Cladding">Commercial Lift / Elevator Panel</option>
+                  <option value="Other">Other Specific Material</option>
+                </select>
+              </div>
+
+              <div class="form-group form-full">
+                <label for="clientMessage">Describe the Damage</label>
+                <textarea id="clientMessage" class="form-control" rows="3" placeholder="Tell us about the damage (chip size, location, age of surface)..."></textarea>
+              </div>
+
+              <div class="form-group form-full">
+                <label>Upload Damage Photographs</label>
+                <div class="file-upload-box" id="dropZone">
+                  <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                  <p id="uploadStatusText"><strong>Click to select images</strong> or drag & drop</p>
+                  <span>Attach close-up and wide shot for accurate estimation (PNG, JPG)</span>
+                  <input type="file" id="photoInput" multiple accept="image/*" style="display: none;">
+                </div>
+              </div>
+
+              <div class="form-group form-full">
+                <button type="submit" class="btn btn-primary interactive-hover" style="width: 100%;">
+                  Request a Free Quote
+                </button>
+              </div>
+
+            </form>
+
+            <!-- Success Confirmation Screen -->
+            <div class="form-success-banner" id="formSuccess">
+              <h3>Thank You.</h3>
+              <p>Your enquiry has been received in this prototype. One of our senior restoration specialists will review your damage photos and provide a fixed quote promptly.</p>
+              <div style="border-top: 1px solid #BED2C0; padding-top: 1.25rem;">
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-main);"><strong>Immediate assistance:</strong></p>
+                <p style="font-size: 1.15rem; font-family: var(--font-serif); font-weight: 600; color: var(--text-main); margin-bottom: 0.2rem;">
+                  01708 536206
+                </p>
+                <p style="font-size: 0.95rem; color: var(--interactive);">
+                  info@londonsurfacerepairs.co.uk
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       13 — FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <span class="logo-main">LONDON SURFACE REPAIRS</span>
+            <span class="logo-sub" style="color: var(--secondary);">Surface Repair Specialists</span>
+          </a>
+          <p>
+            Surface repair and restoration specialists in London & nationwide. We make chips, dents, scratches, burns and cracks disappear.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#materials">Services & Materials</a></li>
+            <li><a href="#gallery">Our Work</a></li>
+            <li><a href="#process">Repair Process</a></li>
+            <li><a href="#about">About Atelier</a></li>
+            <li><a href="#quote">Request Free Quote</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Enquiries</h4>
+          <ul class="footer-links">
+            <li><a href="tel:01708536206">📞 01708 536206</a></li>
+            <li><a href="mailto:info@londonsurfacerepairs.co.uk">✉️ info@londonsurfacerepairs.co.uk</a></li>
+            <li style="color: rgba(255,255,255,0.6); margin-top: 0.5rem;">📍 Greater London & All UK Counties</li>
+            <li style="color: rgba(255,255,255,0.6);">⏱ 24/7 Emergency Snagging Response</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 London Surface Repairs. All rights reserved. Professional Surface Restoration.</div>
+        <div>Don't Replace It. Repair It.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ------------------------------------------------------------------------
+      // 1. CUSTOM CURSOR (DESKTOP ONLY)
+      // ------------------------------------------------------------------------
+      const cursorDot = document.getElementById('cursorDot');
+      const cursorFollower = document.getElementById('cursorFollower');
+      const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.innerWidth < 1024;
+
+      if (!isTouchDevice && cursorDot && cursorFollower) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        const animateFollower = () => {
+          followerX += (mouseX - followerX) * 0.18;
+          followerY += (mouseY - followerY) * 0.18;
+          cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+          requestAnimationFrame(animateFollower);
+        };
+        requestAnimationFrame(animateFollower);
+
+        // Image hover state
+        const imageTriggers = document.querySelectorAll('.image-hover-trigger');
+        imageTriggers.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursorFollower.classList.add('cursor-hover-image');
+            cursorFollower.textContent = 'VIEW';
+          });
+          el.addEventListener('mouseleave', () => {
+            cursorFollower.classList.remove('cursor-hover-image');
+            cursorFollower.textContent = '';
+          });
+        });
+
+        // Interactive button / link hover state
+        const interactiveElements = document.querySelectorAll('.interactive-hover, button, a, .filter-btn');
+        interactiveElements.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            if (!cursorFollower.classList.contains('cursor-hover-image')) {
+              cursorFollower.classList.add('cursor-hover-interactive');
+            }
+          });
+          el.addEventListener('mouseleave', () => {
+            cursorFollower.classList.remove('cursor-hover-interactive');
+          });
+        });
+      } else {
+        if (cursorDot) cursorDot.style.display = 'none';
+        if (cursorFollower) cursorFollower.style.display = 'none';
+      }
+
+      // ------------------------------------------------------------------------
+      // 2. STICKY HEADER & MOBILE NAV
+      // ------------------------------------------------------------------------
+      const headerNav = document.getElementById('headerNav');
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          headerNav.classList.add('scrolled');
+        } else {
+          headerNav.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      if (menuToggle && mobileOverlay) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = menuToggle.classList.toggle('open');
+          mobileOverlay.classList.toggle('open', isOpen);
+          menuToggle.setAttribute('aria-expanded', isOpen);
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // Close on link click
+        mobileOverlay.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // ------------------------------------------------------------------------
+      // 3. SCROLL REVEAL (IntersectionObserver)
+      // ------------------------------------------------------------------------
+      const revealElements = document.querySelectorAll('.reveal-element');
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // ------------------------------------------------------------------------
+      // 4. BEFORE / AFTER COMPARISON SLIDER
+      // ------------------------------------------------------------------------
+      const baSlider = document.getElementById('baSlider');
+      const baAfterLayer = document.getElementById('baAfterLayer');
+      const baAfterInner = document.getElementById('baAfterInner');
+      const baHandle = document.getElementById('baHandle');
+
+      if (baSlider && baAfterLayer && baAfterInner && baHandle) {
+        let isDragging = false;
+
+        const updateSliderWidths = () => {
+          const width = baSlider.offsetWidth;
+          baAfterInner.style.width = width + 'px';
+        };
+        window.addEventListener('resize', updateSliderWidths);
+        updateSliderWidths();
+
+        const setPosition = (clientX) => {
+          const rect = baSlider.getBoundingClientRect();
+          let posX = clientX - rect.left;
+          if (posX < 0) posX = 0;
+          if (posX > rect.width) posX = rect.width;
+          
+          const percentage = (posX / rect.width) * 100;
+          baAfterLayer.style.width = percentage + '%';
+          baHandle.style.left = percentage + '%';
+        };
+
+        const onStart = (e) => {
+          isDragging = true;
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          setPosition(clientX);
+        };
+
+        const onMove = (e) => {
+          if (!isDragging) return;
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          setPosition(clientX);
+        };
+
+        const onEnd = () => {
+          isDragging = false;
+        };
+
+        baSlider.addEventListener('mousedown', onStart);
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', onEnd);
+
+        baSlider.addEventListener('touchstart', onStart, { passive: true });
+        window.addEventListener('touchmove', onMove, { passive: true });
+        window.addEventListener('touchend', onEnd);
+      }
+
+      // ------------------------------------------------------------------------
+      // 5. SERVICES / MATERIALS SELECTOR
+      // ------------------------------------------------------------------------
+      const materialData = {
+        marble: {
+          title: "Marble",
+          desc: "Restore chips, scratches and surface imperfections while preserving the original appearance, natural veining and high-gloss polish.",
+          img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
+        },
+        wood: {
+          title: "Wood & Hardwood",
+          desc: "Repair dents, scratches, burns and damaged finishes without replacing the entire piece or compromising the heritage grain.",
+          img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop"
+        },
+        stone: {
+          title: "Natural Stone",
+          desc: "Reinstate broken limestone, slate, and sandstone hearths with texture-matched mineral compounds and natural porous sealers.",
+          img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop"
+        },
+        upvc: {
+          title: "UPVC & Fenestration",
+          desc: "Restore damaged window frames, doors, and manufactured surfaces on site with factory-grade polymer bonding and UV-stable tints.",
+          img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop"
+        },
+        granite: {
+          title: "Granite",
+          desc: "Invisible repair for chipped sink cut-outs and perimeter worktop edges using flecked aggregate resins polished flush.",
+          img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000&auto=format&fit=crop"
+        },
+        ceramic: {
+          title: "Ceramic & Enamel",
+          desc: "Eliminate chips and drill holes in sanitaryware, sinks, baths, and porcelain wall tiles with high-temperature enamel blends.",
+          img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000&auto=format&fit=crop"
+        },
+        stainless: {
+          title: "Stainless Steel",
+          desc: "Re-grain scratched lift interiors, architectural handrails, and splashbacks to restore uniform satin directionality.",
+          img: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?q=80&w=1000&auto=format&fit=crop"
+        }
+      };
+
+      const matButtons = document.querySelectorAll('.mat-tab-btn');
+      const matDisplayImg = document.getElementById('matDisplayImg');
+      const matDisplayTitle = document.getElementById('matDisplayTitle');
+      const matDisplayDesc = document.getElementById('matDisplayDesc');
+      const matDisplayLine = document.getElementById('matDisplayLine');
+
+      matButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const matKey = btn.dataset.mat;
+          const data = materialData[matKey];
+          if (!data) return;
+
+          matButtons.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          // Smooth transition
+          matDisplayImg.style.opacity = '0.3';
+          matDisplayImg.style.transform = 'scale(0.98)';
+          
+          if (matDisplayLine) matDisplayLine.style.width = '20px';
+
+          setTimeout(() => {
+            matDisplayImg.src = data.img;
+            matDisplayTitle.textContent = data.title;
+            matDisplayDesc.textContent = data.desc;
+            
+            matDisplayImg.style.opacity = '1';
+            matDisplayImg.style.transform = 'scale(1)';
+            if (matDisplayLine) matDisplayLine.style.width = '80px';
+          }, 200);
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 6. PROCESS TIMELINE OBSERVER & PROGRESS BAR
+      // ------------------------------------------------------------------------
+      const processSteps = document.querySelectorAll('.process-step');
+      const timelineBar = document.getElementById('timelineBar');
+      const processStickyImg = document.getElementById('processStickyImg');
+
+      const processImages = {
+        '1': 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop',
+        '2': 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=1000&auto=format&fit=crop',
+        '3': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000&auto=format&fit=crop',
+        '4': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'
+      };
+
+      const stepObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const stepNum = entry.target.dataset.step;
+            
+            processSteps.forEach(s => s.classList.remove('active'));
+            entry.target.classList.add('active');
+
+            // Update Progress Bar
+            if (timelineBar) {
+              const progressPercentage = ((parseInt(stepNum) - 1) / (processSteps.length - 1)) * 100;
+              timelineBar.style.height = progressPercentage + '%';
+            }
+
+            // Update Sticky Image
+            if (processStickyImg && processImages[stepNum]) {
+              processStickyImg.style.opacity = '0.4';
+              setTimeout(() => {
+                processStickyImg.src = processImages[stepNum];
+                processStickyImg.style.opacity = '1';
+              }, 180);
+            }
+          }
+        });
+      }, {
+        threshold: 0.6,
+        rootMargin: '-10% 0px -20% 0px'
+      });
+
+      processSteps.forEach(step => stepObserver.observe(step));
+
+      // ------------------------------------------------------------------------
+      // 7. PORTFOLIO FILTERING & LIGHTBOX
+      // ------------------------------------------------------------------------
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxDesc = document.getElementById('lightboxDesc');
+      const lightboxCat = document.getElementById('lightboxCat');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+
+          galleryItems.forEach(item => {
+            const cat = item.dataset.cat;
+            if (filter === 'all' || cat === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Open Lightbox
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const imgUrl = item.dataset.img;
+          const title = item.dataset.title;
+          const desc = item.dataset.desc;
+          const cat = item.dataset.cat;
+
+          if (lightboxModal && lightboxImg) {
+            lightboxImg.src = imgUrl;
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = desc;
+            lightboxCat.textContent = cat ? cat.toUpperCase() : 'SURFACE REPAIR';
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      const closeLightbox = () => {
+        if (lightboxModal) {
+          lightboxModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) closeLightbox();
+        });
+      }
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      // ------------------------------------------------------------------------
+      // 8. PROTOTYPE QUOTE FORM SUBMISSION & FILE SELECTOR
+      // ------------------------------------------------------------------------
+      const quoteForm = document.getElementById('quoteForm');
+      const formSuccess = document.getElementById('formSuccess');
+      const dropZone = document.getElementById('dropZone');
+      const photoInput = document.getElementById('photoInput');
+      const uploadStatusText = document.getElementById('uploadStatusText');
+
+      if (dropZone && photoInput) {
+        dropZone.addEventListener('click', () => photoInput.click());
+
+        photoInput.addEventListener('change', () => {
+          if (photoInput.files.length > 0) {
+            uploadStatusText.innerHTML = `<strong>${photoInput.files.length} photo(s) selected:</strong> ${photoInput.files[0].name}`;
+            dropZone.style.borderColor = 'var(--interactive)';
+          }
+        });
+
+        // Drag and drop events
+        ['dragenter', 'dragover'].forEach(eventName => {
+          dropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--interactive)';
+            dropZone.style.backgroundColor = '#FFFFFF';
+          });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+          dropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--border-dark)';
+            dropZone.style.backgroundColor = 'var(--bg-warm)';
+          });
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+          const files = e.dataTransfer.files;
+          if (files.length > 0) {
+            photoInput.files = files;
+            uploadStatusText.innerHTML = `<strong>${files.length} photo(s) attached:</strong> ${files[0].name}`;
+          }
+        });
+      }
+
+      if (quoteForm && formSuccess) {
+        quoteForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('clientName').value.trim();
+          const email = document.getElementById('clientEmail').value.trim();
+          const phone = document.getElementById('clientPhone').value.trim();
+          const postcode = document.getElementById('clientPostcode').value.trim();
+
+          if (!name || !email || !phone || !postcode) {
+            alert('Please complete your Name, Email, Phone, and Postcode.');
+            return;
+          }
+
+          // Prototype success display
+          quoteForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
